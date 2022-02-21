@@ -1,8 +1,12 @@
 {% extends "base.html" %}
 
 {% block main %}
-<h1>Contact Form</h1>
-<p>Fill in the form to contact page owners</p>
+<div class="heading">
+    <h1>Contact Form</h1>
+</div>
+<div class="form-title">
+    <p>Fill in the form to contact page owners</p>
+</div>
 <form action="{{ url_for('contact') }}" method="post">
     {{ myform.csrf_token }}
     <div class="form-group">
@@ -13,7 +17,7 @@
     <div class="form-group">
         {{ myform.email.label }}
         <p>Please enter your E-Mail address</p>
-        {{ myform.email(class="form-control", placeholder="jdoe@example.com") }}
+        {{ myform.email(class="form-control") }}
     </div>
     <div class="form-group">
         {{ myform.subject.label }}
@@ -25,7 +29,8 @@
         <p>Please enter the message you would like to send</p>
         {{ myform.message(class="form-control") }}
     </div>
-
-    <button type="submit" class="btn btn-primary">Submit</button>
+    <div class="send-btn">
+        <button type="submit" class="btn btn-primary">Send</button>
+    </div>
 </form>
 {% endblock %}
